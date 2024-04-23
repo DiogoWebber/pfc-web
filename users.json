@@ -1,0 +1,34 @@
+[
+  {
+    "username": "admin",
+    "password": "123"
+  },
+  {
+    "username": "admin123",
+    "password": "123"
+  },
+  {
+    "id": "191f6b6a-b57c-4aeb-94cb-c857903d2554",
+    "username": "raul",
+    "password": "123"
+  },
+  {
+    "id": "005112c5-1f3a-4c66-9c00-17e5bc3a0c49",
+    "username": "teste",
+    "password": "123"
+  },
+  {
+    "username": "diogo",
+    "password": "123"
+  },
+  {
+    "id": "54358f18-d7c3-44cd-89fc-01aec7c52dfb",
+    "username": "a",
+    "password": "123"
+  },
+  {
+    "id": "a25058b9-5597-483d-827a-d48d276d32f2",
+    "username": "diogowebber",
+    "password": "9000"
+  }
+]
