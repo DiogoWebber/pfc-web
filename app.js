@@ -58,17 +58,23 @@ app.get('/html/create-user.html', (req, res) => {
 });
 
 app.post('/create-user', (req, res) => {
-    const { username, password } = req.body;
+    const { username, password, email } = req.body;
     const users = getUsers();
 
     const userExists = users.find(user => user.username === username);
     if (userExists) {
         return res.send('Usuário já existe! Escolha outro nome de usuário.');
     }
+    
+    const emailExists = users.find(user => user.email === email);
+    if (emailExists) {
+        return res.send('Este e-mail já está em uso! Por favor, escolha outro.');
+    }
+
 
     const id = uuidv4();
   
-    users.push({ id, username, password });
+    users.push({ id, username, password, email });
 
     saveUsers(users);
 
