@@ -34,7 +34,12 @@ app.post('/login', (req, res) => {
         req.session.usuario = user;
         return res.sendFile(path.join(__dirname, 'html', 'telaadmin.html'));
     } else {
-        return res.redirect('/html/erro.html');
+        return res.send(`
+            <script>
+                alert('Usuário ou senha incorretos');
+                window.history.back();
+            </script>
+        `);
     }
 });
 
