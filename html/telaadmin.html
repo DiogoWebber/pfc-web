@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Admin</h2>
+        <div class="buttons">
+            <button onclick="window.location.href='/cadastro-receitas-despesas.html'">Cadastro de Receitas e Despesas</button>
+            <button onclick="window.location.href='/lembrete.html'">Lembrete</button>
+            <button onclick="window.location.href='/autenticador.html'">Autenticador</button>
+            <button onclick="window.location.href='/cadastro-contas.html'">Cadastro de Contas</button>
+            <button onclick="window.location.href='/cadastro-usuarios.html'">Cadastro de Usuários</button>
+        </div>
+    </div>
+    <div class="container">
+        <h2>Controle de Finanças</h2>
+        <div class="summary-section">
+            <div class="summary-box">
+                <h3>Entrada</h3>
+                <p>R$ <span id="entryTotal">0.00</span></p>
+            </div>
+            <div class="summary-box">
+                <h3>Saída</h3>
+                <p>R$ <span id="exitTotal">0.00</span></p>
+            </div>
+            <div class="summary-box">
+                <h3>Total</h3>
+                <p>R$ <span id="total">0.00</span></p>
+            </div>
+        </div>
+        <div class="entry-section">
+            <h3>Nova Transação</h3>
+            <div class="entry-form">
+                <input type="text" id="description" placeholder="Descrição" required>
+                <input type="text" id="value" placeholder="Valor" required>
+                <select id="type">
+                    <option value="entry">Entrada</option>
+                    <option value="exit">Saída</option>
+                </select>
+                <button onclick="addTransaction()">Incluir</button>
+            </div>
+        </div>
+        <table class="transaction-table">
+            <thead>
+                <tr>
+                    <th>Descrição</th>
+                    <th>Valor</th>
+                    <th>Tipo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aqui serão adicionadas as transações -->
+            </tbody>
+        </table>
+    </div>
+    <script src="app.js"></script>
+    <script>
+        function addTransaction() {
+            const description = document.getElementById('description').value;
+            const value = document.getElementById('value').value;
+            const type = document.getElementById('type').value;
+            
+            const tableBody = document.querySelector('.transaction-table tbody');
+            
+            const newRow = document.createElement('tr');
+            
+            const descriptionCell = document.createElement('td');
+            descriptionCell.textContent = description;
+            
+            const valueCell = document.createElement('td');
+            valueCell.textContent = value;
+            
+            const typeCell = document.createElement('td');
+            typeCell.textContent = type;
+            
+            newRow.appendChild(descriptionCell);
+            newRow.appendChild(valueCell);
+            newRow.appendChild(typeCell);
+            
+            tableBody.appendChild(newRow);
+            
+            // Limpa os campos do formulário após adicionar a transação
+            document.getElementById('description').value = '';
+            document.getElementById('value').value = '';
+        }
+    </script>
+</body>
+</html>

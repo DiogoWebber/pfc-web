@@ -13,7 +13,14 @@ app.use(session({
     saveUninitialized: true
 }));
 
+// Middleware para servir arquivos estáticos, como CSS, JavaScript e imagens
 app.use(express.static(path.join(__dirname, '/')));
+
+// Middleware de registro para verificar as solicitações para arquivos estáticos
+app.use((req, res, next) => {
+    console.log('Recebida solicitação para:', req.url);
+    next();
+});
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'html', 'login.html'));
@@ -25,7 +32,7 @@ app.post('/login', (req, res) => {
     const user = users.find(user => user.username === username && user.password === password);
     if (user) {
         req.session.usuario = user;
-        return res.redirect('/html/sucesso.html');
+        return res.sendFile(path.join(__dirname, 'html', 'telaadmin.html'));
     } else {
         return res.redirect('/html/erro.html');
     }
@@ -58,26 +65,15 @@ app.get('/html/create-user.html', (req, res) => {
 });
 
 app.post('/create-user', (req, res) => {
-    const { username, password, email } = req.body;
+    const { username, password, email, status } = req.body;
     const users = getUsers();
-
     const userExists = users.find(user => user.username === username);
     if (userExists) {
         return res.send('Usuário já existe! Escolha outro nome de usuário.');
     }
-    
-    const emailExists = users.find(user => user.email === email);
-    if (emailExists) {
-        return res.send('Este e-mail já está em uso! Por favor, escolha outro.');
-    }
-
-
     const id = uuidv4();
-  
-    users.push({ id, username, password, email });
-
+    users.push({ id, username, password, email, level: 'public', status });
     saveUsers(users);
-
     return res.redirect('/html/user-created.html');
 });
 
@@ -94,7 +90,36 @@ function saveUsers(users) {
     fs.writeFileSync('users.json', JSON.stringify(users, null, 2));
 }
 
+function addTransaction() {
+    const description = document.getElementById('description').value;
+    const value = document.getElementById('value').value;
+    const type = document.getElementById('type').value;
+    
+    const tableBody = document.querySelector('.transaction-table tbody');
+    
+    const newRow = document.createElement('tr');
+    
+    const descriptionCell = document.createElement('td');
+    descriptionCell.textContent = description;
+    
+    const valueCell = document.createElement('td');
+    valueCell.textContent = value;
+    
+    const typeCell = document.createElement('td');
+    typeCell.textContent = type;
+    
+    newRow.appendChild(descriptionCell);
+    newRow.appendChild(valueCell);
+    newRow.appendChild(typeCell);
+    
+    tableBody.appendChild(newRow);
+    
+    document.getElementById('description').value = '';
+    document.getElementById('value').value = '';
+}
+
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`Servidor em execução na porta ${PORT}`);
+    console.log(`Servidor em execução na porta http://localhost:${PORT}`);
 });

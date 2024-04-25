@@ -27,14 +27,24 @@
     "password": "123"
   },
   {
-    "id": "a25058b9-5597-483d-827a-d48d276d32f2",
-    "username": "diogowebber",
-    "password": "9000"
+    "id": "5c489bb4-512c-4b1e-931b-371f44579d3b",
+    "username": "raull",
+    "password": "123"
   },
   {
-    "id": "3e8ca941-d147-408c-a1a2-164866bbfaae",
-    "username": "diogo900",
-    "password": "webber",
-    "email": "diogoevaldt17@gmail.com"
+    "id": "f79053d1-95e6-4d00-aa57-9f03eedcb8d6",
+    "username": "raul1",
+    "password": "123",
+    "email": "raulgmfonseca@gmail.com",
+    "level": "public",
+    "status": "on"
+  },
+  {
+    "id": "2efd40fe-3cc6-4ad0-b7ba-778799428316",
+    "username": "admin1234",
+    "password": "123",
+    "email": "raulgmfonseca@gmail.com",
+    "level": "public",
+    "status": "on"
   }
 ]

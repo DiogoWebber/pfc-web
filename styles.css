@@ -6,62 +6,74 @@ body {
 }
 
 .container {
-    max-width: 400px;
+    max-width: 800px;
     margin: 50px auto;
     background-color: #fff;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-form {
-    display: flex;
-    flex-direction: column;
+h2 {
+    text-align: center;
 }
 
-.form-group {
+.summary-section {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+.summary-box {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.entry-section {
+    margin-bottom: 30px;
+}
+
+.entry-form {
+    display: flex;
+    align-items: center;
     margin-bottom: 20px;
 }
 
-label {
-    font-weight: bold;
-}
-
-input[type="text"],
-input[type="password"] ,
-input[type="email"] {
-    width: 100%;
+.entry-form input[type="text"],
+.entry-form select {
+    margin-right: 10px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-button {
-    padding: 10px;
+.entry-form button {
+    padding: 10px 20px;
     border: none;
     background-color: #007bff;
     color: #fff;
-    cursor: pointer;
     border-radius: 5px;
+    cursor: pointer;
 }
 
-button:hover {
+.entry-form button:hover {
     background-color: #0056b3;
 }
 
-.success-message {
-    text-align: center;
-    margin-bottom: 20px;
+.transaction-table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-a {
-    display: block;
-    text-align: center;
-    margin-top: 20px;
-    color: #007bff;
-    text-decoration: none;
+.transaction-table th,
+.transaction-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
 }
 
-a:hover {
-    text-decoration: underline;
+.transaction-table th {
+    background-color: #f0f0f0;
+    text-align: left;
 }
