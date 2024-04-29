@@ -46,5 +46,12 @@
     "email": "raulgmfonseca@gmail.com",
     "level": "public",
     "status": "on"
+  },
+  {
+    "id": "ee8892d3-97cf-4ff6-a6e0-95f7467827ad",
+    "username": "diogoww",
+    "password": "dwadwa",
+    "email": "diogoevaldt17@gmail.com",
+    "level": "public"
   }
 ]

@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
     <link rel="stylesheet" href="../styles.css">
 </head>
+
 <body>
     <div class="container">
         <h2>Admin</h2>
         <div class="buttons">
-            <button onclick="window.location.href='/cadastro-receitas-despesas.html'">Cadastro de Receitas e Despesas</button>
+            <button onclick="window.location.href='/cadastro-receitas-despesas.html'">Cadastro de Receitas e
+                Despesas</button>
             <button onclick="window.location.href='/lembrete.html'">Lembrete</button>
             <button onclick="window.location.href='/autenticador.html'">Autenticador</button>
             <button onclick="window.location.href='/cadastro-contas.html'">Cadastro de Contas</button>
@@ -42,7 +45,7 @@
                     <option value="entry">Entrada</option>
                     <option value="exit">Saída</option>
                 </select>
-                <button onclick="addTransaction()">Incluir</button>
+                <button onclick="submitTransaction()">Incluir</button>
             </div>
         </div>
         <table class="transaction-table">
@@ -53,41 +56,85 @@
                     <th>Tipo</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="transactionBody">
                 <!-- Aqui serão adicionadas as transações -->
             </tbody>
         </table>
     </div>
-    <script src="app.js"></script>
     <script>
-        function addTransaction() {
+        // Função para enviar a nova transação para o servidor
+        function submitTransaction() {
             const description = document.getElementById('description').value;
-            const value = document.getElementById('value').value;
+            const value = parseFloat(document.getElementById('value').value);
             const type = document.getElementById('type').value;
-            
-            const tableBody = document.querySelector('.transaction-table tbody');
-            
-            const newRow = document.createElement('tr');
-            
-            const descriptionCell = document.createElement('td');
-            descriptionCell.textContent = description;
-            
-            const valueCell = document.createElement('td');
-            valueCell.textContent = value;
-            
-            const typeCell = document.createElement('td');
-            typeCell.textContent = type;
-            
-            newRow.appendChild(descriptionCell);
-            newRow.appendChild(valueCell);
-            newRow.appendChild(typeCell);
-            
-            tableBody.appendChild(newRow);
-            
-            // Limpa os campos do formulário após adicionar a transação
-            document.getElementById('description').value = '';
-            document.getElementById('value').value = '';
+
+            if (!description || isNaN(value) || !type) {
+                alert('Por favor, preencha todos os campos corretamente.');
+                return;
+            }
+
+            const transaction = { description, value, type };
+            console.log(description, value, type)
+            fetch('/api/transactions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(transaction)
+            })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw new Error('Erro ao adicionar transação');
+                })
+                .then(data => {
+                    if (data.success) {
+                        // Se a transação for adicionada com sucesso, atualizar a tabela de transações
+                        updateTransactionTable();
+                    } else {
+                        // Se houver algum erro, exibir uma mensagem de erro
+                        alert('Erro ao adicionar transação. Por favor, tente novamente.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                    alert('Erro ao adicionar transação. Por favor, tente novamente.');
+                });
         }
+
+        // Função para atualizar a tabela de transações
+        function updateTransactionTable() {
+            fetch('/api/transactions')
+                .then(response => response.json())
+                .then(transactions => {
+                    const tableBody = document.getElementById('transactionBody');
+                    tableBody.innerHTML = '';
+
+                    transactions.forEach(transaction => {
+                        const newRow = document.createElement('tr');
+
+                        const descriptionCell = document.createElement('td');
+                        descriptionCell.textContent = transaction.description;
+
+                        const valueCell = document.createElement('td');
+                        valueCell.textContent = transaction.value !== undefined ? transaction.value.toFixed(2) : '';
+
+                        const typeCell = document.createElement('td');
+                        typeCell.textContent = transaction.type === 'entry' ? 'Entrada' : 'Saída';
+
+                        newRow.appendChild(descriptionCell);
+                        newRow.appendChild(valueCell);
+                        newRow.appendChild(typeCell);
+
+                        tableBody.appendChild(newRow);
+                    });
+                })
+                .catch(error => console.error('Erro:', error));
+        }
+
+        // Carregar as transações ao carregar a página
+        updateTransactionTable();
     </script>
 </body>
 </html>
