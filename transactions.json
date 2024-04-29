@@ -1,8 +1,20 @@
 [
   {
-    "id": "17097c4a-ae88-4dac-a8ce-fc095e5914ef",
+    "id": "12a23700-d53b-49b6-8112-546e4d296cb9",
     "description": "laranja",
-    "value": 123,
+    "value": 222,
+    "type": "entry"
+  },
+  {
+    "id": "6548dc46-e388-42a2-9df9-7dc81a741e70",
+    "description": "laranja",
+    "value": 222,
+    "type": "exit"
+  },
+  {
+    "id": "ca24f7ff-ef35-477b-9149-ebc32412f087",
+    "description": "banana",
+    "value": 150,
     "type": "entry"
   }
 ]

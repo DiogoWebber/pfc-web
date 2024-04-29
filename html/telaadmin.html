@@ -90,8 +90,9 @@
                 })
                 .then(data => {
                     if (data.success) {
-                        // Se a transação for adicionada com sucesso, atualizar a tabela de transações
+                        // Se a transação for adicionada com sucesso, atualizar a tabela de transações e os totais
                         updateTransactionTable();
+                        updateTotals();
                     } else {
                         // Se houver algum erro, exibir uma mensagem de erro
                         alert('Erro ao adicionar transação. Por favor, tente novamente.');
@@ -133,8 +134,40 @@
                 .catch(error => console.error('Erro:', error));
         }
 
-        // Carregar as transações ao carregar a página
+        // Função para atualizar os totais de entrada, saída e saldo final
+        function updateTotals() {
+            fetch('/api/transactions')
+                .then(response => response.json())
+                .then(transactions => {
+                    let entryTotal = 0;
+                    let exitTotal = 0;
+
+                    transactions.forEach(transaction => {
+                        if (transaction.type === 'entry') {
+                            entryTotal += transaction.value;
+                        } else if (transaction.type === 'exit') {
+                            exitTotal += transaction.value;
+                        }
+                    });
+
+                    const totalEntryElement = document.getElementById('entryTotal');
+                    totalEntryElement.textContent = entryTotal.toFixed(2);
+
+                    const totalExitElement = document.getElementById('exitTotal');
+                    totalExitElement.textContent = exitTotal.toFixed(2);
+
+                    const totalElement = document.getElementById('total');
+                    const total = entryTotal - exitTotal;
+                    totalElement.textContent = total.toFixed(2);
+                })
+                .catch(error => console.error('Erro:', error));
+        }
+
+        // Carregar as transações e os totais ao carregar a página
         updateTransactionTable();
+        updateTotals();
     </script>
+
 </body>
+
 </html>
