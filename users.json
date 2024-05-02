@@ -1,57 +1,9 @@
 [
   {
-    "username": "admin",
-    "password": "123"
-  },
-  {
-    "username": "admin123",
-    "password": "123"
-  },
-  {
-    "id": "191f6b6a-b57c-4aeb-94cb-c857903d2554",
-    "username": "raul",
-    "password": "123"
-  },
-  {
-    "id": "005112c5-1f3a-4c66-9c00-17e5bc3a0c49",
-    "username": "teste",
-    "password": "123"
-  },
-  {
+    "id": "c6c11747-b319-44f0-8d85-d523d6eea29c",
     "username": "diogo",
-    "password": "123"
-  },
-  {
-    "id": "54358f18-d7c3-44cd-89fc-01aec7c52dfb",
-    "username": "a",
-    "password": "123"
-  },
-  {
-    "id": "5c489bb4-512c-4b1e-931b-371f44579d3b",
-    "username": "raull",
-    "password": "123"
-  },
-  {
-    "id": "f79053d1-95e6-4d00-aa57-9f03eedcb8d6",
-    "username": "raul1",
     "password": "123",
-    "email": "raulgmfonseca@gmail.com",
-    "level": "public",
-    "status": "on"
-  },
-  {
-    "id": "2efd40fe-3cc6-4ad0-b7ba-778799428316",
-    "username": "admin1234",
-    "password": "123",
-    "email": "raulgmfonseca@gmail.com",
-    "level": "public",
-    "status": "on"
-  },
-  {
-    "id": "ee8892d3-97cf-4ff6-a6e0-95f7467827ad",
-    "username": "diogoww",
-    "password": "dwadwa",
     "email": "diogoevaldt17@gmail.com",
-    "level": "public"
+    "level": "ON"
   }
 ]

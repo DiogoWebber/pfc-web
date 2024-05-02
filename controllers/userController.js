@@ -50,9 +50,29 @@ function userCreated(req, res) {
     res.sendFile(path.join(__dirname, '..', 'html', 'user-created.html'));
 }
 
+function getAllUsers(req, res) {
+    const users = getUsers();
+    res.json(users);
+}
+function updateUserLevel(req, res) {
+    const { userId } = req.params;
+    const { level } = req.body;
+    const users = getUsers();
+    const userIndex = users.findIndex(user => user.id === userId);
+    if (userIndex !== -1) {
+        users[userIndex].level = level;
+        saveUsers(users);
+        res.json({ success: true, message: 'Nível do usuário atualizado com sucesso.' });
+    } else {
+        res.status(404).json({ success: false, message: 'Usuário não encontrado.' });
+    }
+}
+
 module.exports = {
     login,
     createUserForm,
     createUser,
-    userCreated
+    userCreated,
+    getAllUsers,
+    updateUserLevel
 };

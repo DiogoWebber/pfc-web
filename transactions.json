@@ -1,20 +1,23 @@
 [
   {
-    "id": "12a23700-d53b-49b6-8112-546e4d296cb9",
+    "id": "da8ebbb2-e02b-403e-88a0-abbde213152c",
     "description": "laranja",
-    "value": 222,
-    "type": "entry"
+    "value": 200,
+    "type": "entry",
+    "date": "2019-06-26"
   },
   {
-    "id": "6548dc46-e388-42a2-9df9-7dc81a741e70",
+    "id": "62efb9b0-ba62-4639-8f8d-741582e36ed8",
     "description": "laranja",
-    "value": 222,
-    "type": "exit"
+    "value": 250,
+    "type": "exit",
+    "date": "2010-06-26"
   },
   {
-    "id": "ca24f7ff-ef35-477b-9149-ebc32412f087",
-    "description": "banana",
-    "value": 150,
-    "type": "entry"
+    "id": "593bfd20-daaf-4899-b248-a65eed02fc59",
+    "description": "laranja",
+    "value": 250,
+    "type": "exit",
+    "date": "1990-05-20"
   }
 ]
