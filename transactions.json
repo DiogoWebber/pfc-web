@@ -1,23 +1,16 @@
 [
   {
-    "id": "da8ebbb2-e02b-403e-88a0-abbde213152c",
+    "id": "bbf4fa14-cb73-4b98-aa92-ea485d01bb01",
     "description": "laranja",
-    "value": 200,
+    "value": 150,
     "type": "entry",
-    "date": "2019-06-26"
+    "date": "2024-05-03"
   },
   {
-    "id": "62efb9b0-ba62-4639-8f8d-741582e36ed8",
-    "description": "laranja",
+    "id": "ec62f539-7cc3-4fab-8c2c-2f624e647e1b",
+    "description": "mamao",
     "value": 250,
-    "type": "exit",
-    "date": "2010-06-26"
-  },
-  {
-    "id": "593bfd20-daaf-4899-b248-a65eed02fc59",
-    "description": "laranja",
-    "value": 250,
-    "type": "exit",
-    "date": "1990-05-20"
+    "type": "entry",
+    "date": "2024-05-04"
   }
 ]

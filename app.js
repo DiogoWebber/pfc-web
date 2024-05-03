@@ -5,6 +5,7 @@ const session = require('express-session');
 const path = require('path');
 const userRoutes = require('./routes/userRoutes');
 const transactionRoutes = require('./routes/transactionRoutes');
+const accountsRoutes = require('./routes/accountsRoutes');
 
 const app = express();
 
@@ -26,6 +27,7 @@ app.use((req, res, next) => {
 // Use suas rotas
 app.use('/user', userRoutes);
 app.use('/api', transactionRoutes);
+app.use('/accounts', accountsRoutes);
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'html', 'login.html'));

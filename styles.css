@@ -1,3 +1,4 @@
+/* Reset CSS */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -5,6 +6,7 @@ body {
     background-color: #f4f4f4;
 }
 
+/* Estilos para o container principal */
 .container {
     max-width: 800px;
     margin: 50px auto;
@@ -14,16 +16,19 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Estilos para os títulos */
 h2 {
     text-align: center;
 }
 
+/* Estilos para a seção de resumo */
 .summary-section {
     display: flex;
     justify-content: space-around;
     margin-bottom: 30px;
 }
 
+/* Estilos para cada caixa de resumo */
 .summary-box {
     text-align: center;
     padding: 20px;
@@ -31,10 +36,12 @@ h2 {
     border-radius: 10px;
 }
 
+/* Estilos para a seção de transações */
 .entry-section {
     margin-bottom: 30px;
 }
 
+/* Estilos para o formulário de entrada */
 .entry-form {
     display: flex;
     align-items: center;
@@ -62,6 +69,7 @@ h2 {
     background-color: #0056b3;
 }
 
+/* Estilos para a tabela de transações */
 .transaction-table {
     width: 100%;
     border-collapse: collapse;
@@ -78,6 +86,7 @@ h2 {
     text-align: left;
 }
 
+/* Estilos para o modal */
 .modal {
     display: none;
     position: fixed;
@@ -111,4 +120,19 @@ h2 {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+.account-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.account-table th,
+.account-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.account-table th {
+    background-color: #f0f0f0;
+    text-align: left;
 }
