@@ -1,16 +1,23 @@
 [
   {
-    "id": "bbf4fa14-cb73-4b98-aa92-ea485d01bb01",
-    "description": "laranja",
-    "value": 150,
-    "type": "entry",
-    "date": "2024-05-03"
-  },
-  {
     "id": "ec62f539-7cc3-4fab-8c2c-2f624e647e1b",
     "description": "mamao",
     "value": 250,
     "type": "entry",
     "date": "2024-05-04"
+  },
+  {
+    "id": "1c7b6241-8b02-4b44-8a17-f1cdf24eb2dd",
+    "description": "laranja",
+    "value": 1250,
+    "type": "entry",
+    "date": "2025-05-02"
+  },
+  {
+    "id": "fd219799-4295-45b7-90eb-382511e7409c",
+    "description": "banana",
+    "value": 1250,
+    "type": "exit",
+    "date": "2025-05-02"
   }
 ]

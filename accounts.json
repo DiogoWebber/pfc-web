@@ -26,5 +26,12 @@
     "bank": "brasil",
     "accountNumber": "250",
     "balance": 90000
+  },
+  {
+    "id": "8935fb78-4815-43da-8ec0-c8d571163e43",
+    "accountName": "lalalala",
+    "bank": "brasil",
+    "accountNumber": "2510150",
+    "balance": 1500000
   }
 ]
