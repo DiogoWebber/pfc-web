@@ -5,5 +5,12 @@
     "password": "123",
     "email": "diogoevaldt17@gmail.com",
     "level": "OFF"
+  },
+  {
+    "id": "fc881937-8ee3-47a3-b54d-07320feb8663",
+    "username": "diogow",
+    "password": "webber",
+    "email": "diogowebber17@gmail.com",
+    "level": "OFF"
   }
 ]
