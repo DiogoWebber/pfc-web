@@ -41,7 +41,7 @@ function createUser(req, res) {
         return res.send('Usuário já existe! Escolha outro nome de usuário.');
     }
     const id = uuidv4();
-    users.push({ id, username, password, email, level: 'off', status });
+    users.push({ id, username, password, email, level: 'OFF', status });
     saveUsers(users);
     return res.redirect('/html/user-created.html');
 }
