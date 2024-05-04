@@ -1,17 +1,10 @@
 [
   {
-    "id": "ec62f539-7cc3-4fab-8c2c-2f624e647e1b",
-    "description": "mamao",
-    "value": 250,
-    "type": "entry",
-    "date": "2024-05-04"
-  },
-  {
     "id": "1c7b6241-8b02-4b44-8a17-f1cdf24eb2dd",
     "description": "laranja",
     "value": 1250,
     "type": "entry",
-    "date": "2025-05-02"
+    "date": "2025-05-03"
   },
   {
     "id": "fd219799-4295-45b7-90eb-382511e7409c",
@@ -19,5 +12,12 @@
     "value": 1250,
     "type": "exit",
     "date": "2025-05-02"
+  },
+  {
+    "id": "d8ad6dc5-e6c2-4243-b619-4b333bf69104",
+    "description": "laranja",
+    "value": 123,
+    "type": "entry",
+    "date": "2024-05-05"
   }
 ]

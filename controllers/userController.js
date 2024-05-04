@@ -16,10 +16,9 @@ function login(req, res) {
     const { username, password } = req.body;
     const users = getUsers();
     const user = users.find(user => user.username === username && user.password === password);
-    if (user) {
-        req.session.usuario = user;
-        return res.sendFile(path.join(__dirname, '..', 'html', 'telaadmin.html'));
-    } else {
+    
+    if (!user) {
+        // Usuário não encontrado
         return res.send(`
             <script>
                 alert('Usuário ou senha incorretos');
@@ -27,7 +26,22 @@ function login(req, res) {
             </script>
         `);
     }
+
+    if (user.level !== 'ON') {
+        // Usuário encontrado, mas não possui nível de acesso 'ON'
+        return res.send(`
+            <script>
+                alert('Usuário encontrado, mas não possui permissão de acesso.');
+                window.history.back();
+            </script>
+        `);
+    }
+
+    // Usuário encontrado e possui nível de acesso 'ON', armazena na sessão e redireciona para a página de administração
+    req.session.usuario = user;
+    return res.sendFile(path.join(__dirname, '..', 'html', 'telaadmin.html'));
 }
+
 
 function createUserForm(req, res) {
     res.sendFile(path.join(__dirname, '..', 'html', 'create-user.html'));

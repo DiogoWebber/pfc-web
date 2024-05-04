@@ -33,5 +33,12 @@
     "bank": "brasil",
     "accountNumber": "2510150",
     "balance": 1500000
+  },
+  {
+    "id": "46416ea8-2e58-4ad3-a1fb-81ab13f0c43a",
+    "accountName": "diogo",
+    "bank": "brasil",
+    "accountNumber": "250",
+    "balance": 2500000
   }
 ]
