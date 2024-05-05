@@ -54,5 +54,12 @@
     "password": "12312312",
     "email": "diogoevaldt17@gmail.com",
     "level": "OFF"
+  },
+  {
+    "id": "25f74a15-cfd3-438f-a9d9-534a2fe48f8d",
+    "username": "laranja2",
+    "password": "123",
+    "email": "diogoevaldt17@gmail.com",
+    "level": "ON"
   }
 ]

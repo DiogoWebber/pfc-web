@@ -330,7 +330,8 @@ function submitAccount() {
     const accountName = document.getElementById('accountName').value;
     const bank = document.getElementById('bank').value;
     const accountNumber = document.getElementById('accountNumber').value;
-    const balance = parseFloat(document.getElementById('balance').value);
+    const balanceInput = document.getElementById('balance').value;
+    const balance = parseFloat(balanceInput.replace(/\./g, '').replace(',', '.')); // Formata o saldo para o formato correto
 
     if (!accountName || !bank || !accountNumber || isNaN(balance)) {
         alert('Por favor, preencha todos os campos corretamente.');
@@ -354,7 +355,6 @@ function submitAccount() {
         })
         .then(data => {
             if (data.success) {
-                // Se a conta for cadastrada com sucesso, limpar o formulário e atualizar a exibição das contas
                 document.getElementById('accountName').value = '';
                 document.getElementById('bank').value = '';
                 document.getElementById('accountNumber').value = '';
@@ -369,6 +369,7 @@ function submitAccount() {
             alert('Erro ao cadastrar conta. Por favor, tente novamente.');
         });
 }
+
 function deleteAccountHandler(accountId) {
     fetch(`/accounts/${accountId}`, {
         method: 'DELETE',
@@ -404,7 +405,6 @@ function updateAccountTable() {
             accounts.forEach(account => {
                 const newRow = document.createElement('tr');
 
-                // Células para cada atributo da conta bancária
                 const nameCell = document.createElement('td');
                 nameCell.textContent = account.accountName;
 
@@ -415,9 +415,11 @@ function updateAccountTable() {
                 numberCell.textContent = account.accountNumber;
 
                 const balanceCell = document.createElement('td');
-                balanceCell.textContent = account.balance.toFixed(2);
-
-                // Célula para o botão de exclusão
+                balanceCell.textContent = account.balance.toLocaleString('pt-BR', {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                });
+                
                 const deleteCell = document.createElement('td');
                 const deleteButton = document.createElement('button');
                 deleteButton.textContent = 'Excluir';
@@ -428,9 +430,8 @@ function updateAccountTable() {
                 newRow.appendChild(bankCell);
                 newRow.appendChild(numberCell);
                 newRow.appendChild(balanceCell);
-                newRow.appendChild(deleteCell); // Adicionar a célula do botão de exclusão à linha
+                newRow.appendChild(deleteCell); 
 
-                // Adicionar a nova linha ao corpo da tabela
                 tableBody.appendChild(newRow);
             });
         })

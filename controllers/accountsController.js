@@ -21,7 +21,6 @@ function addAccounts(req, res) {
         res.status(400).json({ error: 'Invalid request' });
         return;
     }
-
     const account = { id: uuidv4(), accountName, bank, accountNumber, balance };
 
     fs.readFile(path.join(__dirname, '..', 'json', 'accounts.json'), 'utf8', (err, data) => {
@@ -43,7 +42,7 @@ function addAccounts(req, res) {
     });
 }
 function deleteAccount(req, res) {
-    const accountId = req.params.id; // Supondo que você esteja passando o ID do objeto a ser excluído como um parâmetro na URL
+    const accountId = req.params.id;
     fs.readFile(path.join(__dirname, '..', 'json', 'accounts.json'), 'utf8', (err, data) => {
         if (err) {
             console.error(err);

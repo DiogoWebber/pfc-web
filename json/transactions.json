@@ -1,12 +1,5 @@
 [
   {
-    "id": "1c7b6241-8b02-4b44-8a17-f1cdf24eb2dd",
-    "description": "laranja",
-    "value": 1250,
-    "type": "entry",
-    "date": "2025-05-03"
-  },
-  {
     "id": "fd219799-4295-45b7-90eb-382511e7409c",
     "description": "banana",
     "value": 1250,
@@ -19,5 +12,19 @@
     "value": 123,
     "type": "entry",
     "date": "2023-05-05"
+  },
+  {
+    "id": "857111cf-995b-4130-819a-0bce496801cd",
+    "description": "banana",
+    "value": 250,
+    "type": "entry",
+    "date": "2024-05-05"
+  },
+  {
+    "id": "7faeb289-b275-4358-a027-25897ca4cb86",
+    "description": "feijao",
+    "value": 500,
+    "type": "exit",
+    "date": "2024-05-05"
   }
 ]
