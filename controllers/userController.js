@@ -4,13 +4,14 @@ const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 
 function getUsers() {
-    const usersJson = fs.readFileSync('users.json');
+    const usersJson = fs.readFileSync(path.join(__dirname, '..', 'json', 'users.json'));
     return JSON.parse(usersJson);
 }
 
 function saveUsers(users) {
-    fs.writeFileSync('users.json', JSON.stringify(users, null, 2));
+    fs.writeFileSync(path.join(__dirname, '..', 'json', 'users.json'), JSON.stringify(users, null, 2));
 }
+
 
 function login(req, res) {
     const { username, password } = req.body;

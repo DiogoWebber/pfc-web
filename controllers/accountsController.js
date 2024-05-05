@@ -4,7 +4,7 @@ const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 
 function getAccounts(req, res) {
-    fs.readFile(path.join(__dirname, '..', 'accounts.json'), 'utf8', (err, data) => {
+    fs.readFile(path.join(__dirname, '..', 'json', 'accounts.json'), 'utf8', (err, data) => {
         if (err) {
             console.error(err);
             res.status(500).json({ error: 'Internal Server Error' });
@@ -24,7 +24,7 @@ function addAccounts(req, res) {
 
     const account = { id: uuidv4(), accountName, bank, accountNumber, balance };
 
-    fs.readFile(path.join(__dirname, '..', 'accounts.json'), 'utf8', (err, data) => {
+    fs.readFile(path.join(__dirname, '..', 'json', 'accounts.json'), 'utf8', (err, data) => {
         if (err) {
             console.error(err);
             res.status(500).json({ error: 'Internal Server Error' });
@@ -32,7 +32,7 @@ function addAccounts(req, res) {
         }
         const accounts = JSON.parse(data);
         accounts.push(account);
-        fs.writeFile(path.join(__dirname, '..', 'accounts.json'), JSON.stringify(accounts, null, 2), err => {
+        fs.writeFile(path.join(__dirname, '..', 'json', 'accounts.json'), JSON.stringify(accounts, null, 2), err => {
             if (err) {
                 console.error(err);
                 res.status(500).json({ error: 'Internal Server Error' });
@@ -44,7 +44,7 @@ function addAccounts(req, res) {
 }
 function deleteAccount(req, res) {
     const accountId = req.params.id; // Supondo que você esteja passando o ID do objeto a ser excluído como um parâmetro na URL
-    fs.readFile(path.join(__dirname, '..', 'accounts.json'), 'utf8', (err, data) => {
+    fs.readFile(path.join(__dirname, '..', 'json', 'accounts.json'), 'utf8', (err, data) => {
         if (err) {
             console.error(err);
             res.status(500).json({ error: 'Internal Server Error' });
@@ -61,7 +61,7 @@ function deleteAccount(req, res) {
 
         accounts.splice(index, 1);
 
-        fs.writeFile(path.join(__dirname, '..', 'accounts.json'), JSON.stringify(accounts, null, 2), err => {
+        fs.writeFile(path.join(__dirname, '..', 'json', 'accounts.json'), JSON.stringify(accounts, null, 2), err => {
             if (err) {
                 console.error(err);
                 res.status(500).json({ error: 'Internal Server Error' });
