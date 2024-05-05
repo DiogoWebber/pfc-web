@@ -23,7 +23,6 @@ app.use((req, res, next) => {
     next();
 });
 
-// Use suas rotas
 app.use('/user', userRoutes);
 app.use('/api', transactionRoutes);
 app.use('/accounts', accountsRoutes);
