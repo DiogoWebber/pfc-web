@@ -42,8 +42,37 @@ function addAccounts(req, res) {
         });
     });
 }
+function deleteAccount(req, res) {
+    const accountId = req.params.id; // Supondo que você esteja passando o ID do objeto a ser excluído como um parâmetro na URL
+    fs.readFile(path.join(__dirname, '..', 'accounts.json'), 'utf8', (err, data) => {
+        if (err) {
+            console.error(err);
+            res.status(500).json({ error: 'Internal Server Error' });
+            return;
+        }
 
+        let accounts = JSON.parse(data);
+        const index = accounts.findIndex(account => account.id === accountId);
+
+        if (index === -1) {
+            res.status(404).json({ error: 'Conta não Econtrada' });
+            return;
+        }
+
+        accounts.splice(index, 1);
+
+        fs.writeFile(path.join(__dirname, '..', 'accounts.json'), JSON.stringify(accounts, null, 2), err => {
+            if (err) {
+                console.error(err);
+                res.status(500).json({ error: 'Internal Server Error' });
+                return;
+            }
+            res.status(200).json({ success: true });
+        });
+    });
+}
 module.exports = {
     getAccounts,
-    addAccounts
+    addAccounts,
+    deleteAccount
 };

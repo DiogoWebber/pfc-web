@@ -32,9 +32,6 @@ function calculateTimeToPay(transactionDate) {
     return { days, hours };
 }
 
-
-
-
 // Funções para abrir e fechar o modal de transações
 function openTransactionModal() {
     const modal = document.getElementById('transactionModal');
@@ -372,6 +369,31 @@ function submitAccount() {
             alert('Erro ao cadastrar conta. Por favor, tente novamente.');
         });
 }
+function deleteAccountHandler(accountId) {
+    fetch(`/accounts/${accountId}`, {
+        method: 'DELETE',
+    })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error('Erro ao excluir conta');
+        })
+        .then(data => {
+            if (data.success) {
+                // Se a conta for excluída com sucesso, atualize a tabela de contas
+                updateAccountTable();
+            } else {
+                // Se houver algum erro, exiba uma mensagem de erro
+                alert('Erro ao excluir conta. Por favor, tente novamente.');
+            }
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            alert('Erro ao excluir conta. Por favor, tente novamente.');
+        });
+}
+
 function updateAccountTable() {
     fetch('/accounts')
         .then(response => response.json())
@@ -395,11 +417,18 @@ function updateAccountTable() {
                 const balanceCell = document.createElement('td');
                 balanceCell.textContent = account.balance.toFixed(2);
 
+                // Célula para o botão de exclusão
+                const deleteCell = document.createElement('td');
+                const deleteButton = document.createElement('button');
+                deleteButton.textContent = 'Excluir';
+                deleteButton.addEventListener('click', () => deleteAccountHandler(account.id));
+                deleteCell.appendChild(deleteButton);
 
                 newRow.appendChild(nameCell);
                 newRow.appendChild(bankCell);
                 newRow.appendChild(numberCell);
                 newRow.appendChild(balanceCell);
+                newRow.appendChild(deleteCell); // Adicionar a célula do botão de exclusão à linha
 
                 // Adicionar a nova linha ao corpo da tabela
                 tableBody.appendChild(newRow);
@@ -407,6 +436,10 @@ function updateAccountTable() {
         })
         .catch(error => console.error('Erro:', error));
 }
+
+
+
+
 
 // Função para atualizar os totais de entrada, saída e saldo final
 function updateTotals() {

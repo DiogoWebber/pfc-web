@@ -6,5 +6,6 @@ const router = express.Router();
 
 router.post('/', accountsController.addAccounts);
 router.get('/', accountsController.getAccounts);
+router.delete('/:id', accountsController.deleteAccount);
 
 module.exports = router;

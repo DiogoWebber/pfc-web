@@ -18,7 +18,6 @@ function login(req, res) {
     const user = users.find(user => user.username === username && user.password === password);
     
     if (!user) {
-        // Usuário não encontrado
         return res.send(`
             <script>
                 alert('Usuário ou senha incorretos');
@@ -28,10 +27,9 @@ function login(req, res) {
     }
 
     if (user.level !== 'ON') {
-        // Usuário encontrado, mas não possui nível de acesso 'ON'
         return res.send(`
             <script>
-                alert('Usuário encontrado, mas não possui permissão de acesso.');
+                alert('Você não possui permissão de acesso.');
                 window.history.back();
             </script>
         `);
@@ -52,16 +50,22 @@ function createUser(req, res) {
     const users = getUsers();
     const userExists = users.find(user => user.username === username);
     if (userExists) {
-        return res.send('Usuário já existe! Escolha outro nome de usuário.');
+        return res.send(`
+        <script>
+            alert('Nome de usuário indisponível');
+            window.location.href = '/html/create-user.html';
+        </script>
+    `);
     }
     const id = uuidv4();
     users.push({ id, username, password, email, level: 'OFF', status });
     saveUsers(users);
-    return res.redirect('/html/user-created.html');
-}
-
-function userCreated(req, res) {
-    res.sendFile(path.join(__dirname, '..', 'html', 'user-created.html'));
+    return res.send(`
+        <script>
+            alert('Usuário criado com sucesso!');
+            window.location.href = '/html/login.html';
+        </script>
+    `);
 }
 
 function getAllUsers(req, res) {
@@ -86,7 +90,6 @@ module.exports = {
     login,
     createUserForm,
     createUser,
-    userCreated,
     getAllUsers,
     updateUserLevel
 };

@@ -43,7 +43,6 @@ const { v4: uuidv4 } = require('uuid');
     });
 }
 
-// No seu arquivo transactionController.js
     function deleteTransaction(req, res) {
     const transactionId = req.params.id;
 

@@ -4,7 +4,7 @@
     "username": "diogo",
     "password": "123",
     "email": "diogoevaldt17@gmail.com",
-    "level": "OFF"
+    "level": "ON"
   },
   {
     "id": "fc881937-8ee3-47a3-b54d-07320feb8663",
@@ -26,5 +26,26 @@
     "password": "12312312",
     "email": "diogoevaldt17@gmail.com",
     "level": "ON"
+  },
+  {
+    "id": "4d4cb2d2-410b-49da-976e-32971f24a5e2",
+    "username": "diogowebber",
+    "password": "12345",
+    "email": "diogoevaldt17@gmail.com",
+    "level": "OFF"
+  },
+  {
+    "id": "ef3b055d-6787-46d7-85ea-3a41e6c07bb6",
+    "username": "laranja",
+    "password": "123",
+    "email": "diogoevaldt17@gmail.com",
+    "level": "OFF"
+  },
+  {
+    "id": "2de85544-4bc6-433c-8e0c-d5567f2401d6",
+    "username": "Seila",
+    "password": "1234122",
+    "email": "diogoevaldt17@gmail.com",
+    "level": "OFF"
   }
 ]

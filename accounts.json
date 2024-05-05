@@ -1,26 +1,5 @@
 [
   {
-    "id": "d222edc8-6904-4a6f-9bc8-b31d9fe1ab87",
-    "accountName": "lala",
-    "bank": "brasil",
-    "accountNumber": "123",
-    "balance": 250000
-  },
-  {
-    "id": "c8877629-d179-4106-9c2b-58efb49cf122",
-    "accountName": "lalala",
-    "bank": "bradesco",
-    "accountNumber": "250",
-    "balance": 1000000
-  },
-  {
-    "id": "c0ac75b3-1098-4612-921d-ec5500306710",
-    "accountName": "lalaalal",
-    "bank": "2500",
-    "accountNumber": "1500",
-    "balance": 150000
-  },
-  {
     "id": "3201b060-24e9-4169-9eed-bcd5e6df4406",
     "accountName": "lalala",
     "bank": "brasil",
