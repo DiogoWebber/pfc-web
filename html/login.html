@@ -1,26 +1,118 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="../css/login.css">
+    <style>
+
+    </style>
 </head>
+
 <body>
-    <div class="container">
-        <form action="/user/login" method="post"> 
-            <h2>Login</h2>
-            <div class="form-group">
-                <label for="username">Usuário:</label>
-                <input type="text" id="username" name="username" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Senha:</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <button type="submit">Entrar</button>
-        </form>
-        <a href="/html/create-user.html">Criar Novo Usuário</a> 
+    <div class="background-left"></div>
+    <div class="background-right">
+        <div class="container">
+            <form id="loginForm" method="post" action="/user/login">
+                <h2>Seja bem vindo de volta!!</h2>
+                <div class="form-group">
+                    <label for="username">Usuário:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Senha:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">Entrar</button>
+            </form>
+            <a href="#" id="openModal">Criar Novo Usuário</a>
+        </div>
     </div>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="createUserForm">
+                <h2 id="user">Criar Usuário</h2>
+                <form id="createUserForm" method="post" action="/user/create-user">
+                    <div class="form-group">
+                        <label for="newUsername">Nome de Usuário:</label>
+                        <input type="text" id="newUsername" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="newPassword">Senha:</label>
+                        <input type="password" id="newPassword" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <button type="submit">Criar Usuário</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var openModalLink = document.getElementById('openModal');
+        var modal = document.getElementById('myModal');
+        var createUserForm = document.getElementById('createUserForm');
+
+        openModalLink.addEventListener('click', function(event) {
+            event.preventDefault();
+            modal.style.display = 'block';
+            createUserForm.style.display = 'block'; 
+        });
+
+        modal.querySelector('.close').addEventListener('click', function() {
+            modal.style.display = 'none';
+            createUserForm.style.display = 'none'; 
+        });
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            fetch('/user/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username: username, password: password })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    window.location.href = '/admin'; // Redireciona para a página de administração
+                } else {
+                    alert(data.error); // Exibe mensagem de erro
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+
+        document.getElementById('createUserForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var newUsername = document.getElementById('newUsername').value;
+            var newPassword = document.getElementById('newPassword').value;
+            var email = document.getElementById('email').value;
+
+            fetch('/user/create-user', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ username: newUsername, password: newPassword, email: email })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.success ? 'Usuário criado com sucesso!' : data.error);
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
 </body>
+
 </html>

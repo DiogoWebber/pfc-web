@@ -1,16 +1,9 @@
 [
   {
-    "id": "a5af293c-dfe2-4199-95e5-95df6bc7f482",
-    "accountName": "diogo",
-    "bank": "bradesco",
-    "accountNumber": "235",
-    "balance": 1500000
-  },
-  {
-    "id": "d435cbed-09d5-4dec-a910-da159c3497ba",
-    "accountName": "banana",
+    "id": "b42a6587-f482-400b-b9ac-198903e945b1",
+    "accountName": "laranja",
     "bank": "brasil",
     "accountNumber": "250",
-    "balance": 150000
+    "balance": 250000
   }
 ]

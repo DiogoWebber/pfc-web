@@ -242,7 +242,6 @@ function closeModal() {
     const modal = document.getElementById('userModal');
     modal.style.display = 'none';
 }
-
 function fetchUsers() {
     fetch('/user/users')
         .then(response => response.json())

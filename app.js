@@ -30,6 +30,9 @@ app.use('/accounts', accountsRoutes);
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'html', 'login.html'));
 });
+app.get('/admin', (req, res) => {
+    res.sendFile(path.join(__dirname, 'html', 'telaadmin.html'));
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
