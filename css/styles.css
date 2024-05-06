@@ -1,20 +1,112 @@
-/* Reset CSS */
+@import url('https://fonts.googleapis.com/css2?family=Freeman&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
 }
 
-/* Estilos para o container principal */
+body::before {
+    content: "";
+    background-image: url(../assets/fundoAdmin.jpg);
+    background-size: cover;
+    background-position: center;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    z-index: -1; 
+}
+
+
 .container {
     max-width: 800px;
     margin: 50px auto;
-    background-color: #fff;
+    background-color: #000;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center; 
+
+}
+.controle{
+    display: flex;
+    justify-content: center;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+}
+#cadastroUsuarios {
+    font-family: 'Freeman', sans-serif;
+    width: 300px;
+    border-radius: 30px;
+    background-color: #696373;
+    box-shadow: 0 0 10px rgba(170, 102, 216, 0.733);
+    font-size: 20px;
+    color: #000;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    align-items: center;
+}
+#cont{
+    font-family: 'Freeman', sans-serif;
+    font-weight: bold;
+    color: white;
+    font-size: 28px;
+}
+.container h2{
+    font-family: 'Freeman', sans-serif;
+    font-weight: bold;
+    font-size: 35px;
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(170, 102, 216, 0.733);
+    color: white;
+}
+
+.container1 {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #816DB9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+#EntradaSaidaTotal{
+    color: white;
+    font-family: 'Freeman', sans-serif;
+    font-weight: bold;
+}
+#botao{
+    background-color: #816DB9;
+}
+#transacao{
+    color:#696373;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: 'Freeman', sans-serif;
+}
+.container2 {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #000;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+#finanças{
+    color:white;
+    font-weight: bold;
+    background-color: #000;
+    
 }
 
 /* Estilos para os títulos */
@@ -46,9 +138,122 @@ h2 {
 .entry-form {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+ 
+}
+#table{
+ color: white;
 }
 
+#cadastrarConta{
+    background-color: #816DB9;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: 'Freeman', sans-serif;
+    color: white;
+}
+.button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+
+
+}
+#lista{
+    background-color: #816DB9;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+button{
+    background-color: #816DB9;
+    padding: 10px;
+    color: white;
+    font-family: 'Freeman', sans-serif;
+    border-radius: 15px;
+    margin-left: 20px;
+}
+.container3{
+    margin-bottom: 40px;
+}
+.entry-form input {
+    margin-bottom: 10px; 
+}
+
+#botaoCadastrar {
+    background-color: #816DB9;
+    padding: 10px 20px;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    margin-bottom: 10px;
+    
+}
+.summary-box p{
+background-color: black;
+font-family: 'Freeman', sans-serif; 
+color: white;
+border-radius: 5px;
+padding: 10px;
+
+
+}
+
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+    background-color: #816DB9; 
+    margin: 15% auto; 
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    font-family: 'Freeman', sans-serif; 
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.8);
+    color: white;
+
+}
+#ultimas{
+    font-size: 33px;
+    
+}
+/* Estilo para o botão de fechar */
+.close {
+    color: #fff; /* Cor do ícone de fechar */
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000; /* Cor do ícone de fechar ao passar o mouse ou focar */
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+#sumario{
+    font-family: 'Freeman', sans-serif;
+    font-weight: bold;
+}
+#title{
+    font-family: 'Freeman', sans-serif; 
+    font-weight: bold;
+
+}
 .entry-form input[type="text"],
 .entry-form select {
     margin-right: 10px;
@@ -60,17 +265,17 @@ h2 {
 .entry-form button {
     padding: 10px 20px;
     border: none;
-    background-color: #007bff;
+    background-color: #816DB9;
     color: #fff;
     border-radius: 5px;
     cursor: pointer;
 }
 
 .entry-form button:hover {
-    background-color: #0056b3;
+    background-color: #352d34;
 }
 
-/* Estilos para a tabela de transações */
+
 .transaction-table {
     width: 100%;
     border-collapse: collapse;
@@ -82,32 +287,28 @@ h2 {
     padding: 10px;
 }
 
+#select{
+    margin-bottom: 10px;
+    background-color: #816DB9;
+    font-family: 'Freeman', sans-serif; 
+
+
+}
+#opcoes{
+    margin-top: 10px;
+    font-family: 'Freeman', sans-serif; 
+}
+#opcoes:hover {
+    background-color: #dfc9e4; 
+}
+
 .transaction-table th {
     background-color: #f0f0f0;
     text-align: left;
 }
 
 /* Estilos para o modal */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-}
 
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 600px;
-}
 
 .close {
     color: #aaa;
@@ -134,33 +335,11 @@ h2 {
 }
 
 .account-table th {
-    background-color: #f0f0f0;
     text-align: left;
 }
 
-/* Estilos para o modal */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-}
 
-.modal-content {
-    background-color: #fefefe;
-    margin: 10% auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    width: 80%;
-    max-width: 600px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+
 
 .close {
     color: #aaa;
@@ -176,17 +355,21 @@ h2 {
     cursor: pointer;
 }
 
-/* Estilos para o cabeçalho do modal */
+
 .modal-content h2 {
     text-align: center;
     margin-bottom: 20px;
 }
 
-/* Estilos para a lista de usuários dentro do modal */
+
 #userList {
     list-style-type: none;
     padding: 0;
     margin: 0;
+    background-color: #816DB9;
+    font-family: 'Freeman', sans-serif; 
+    padding: 20px;
+    border-radius: 15px;
 }
 
 #userList li {
@@ -198,4 +381,11 @@ h2 {
 
 #userList li:hover {
     background-color: #e0e0e0;
+}
+span{
+    color: #816DB9;
+}
+#title2{
+    font-family: 'Freeman', sans-serif; 
+    color: white;
 }

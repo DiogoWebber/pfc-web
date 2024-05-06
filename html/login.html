@@ -27,7 +27,7 @@
                 </div>
                 <button type="submit">Entrar</button>
             </form>
-            <a href="#" id="openModal">Criar Novo Usuário</a>
+            <a href="#" id="openModal">Não possui uma conta ainda? Cadastre-se aqui</a>
         </div>
     </div>
     <div id="myModal" class="modal">
@@ -48,71 +48,12 @@
                         <label for="email">Email:</label>
                         <input type="email" id="email" name="email" required>
                     </div>
-                    <button type="submit">Criar Usuário</button>
+                    <button type="submit" id="createUserBtn">Criar Usuário</button>
                 </form>
             </div>
         </div>
     </div>
-
-    <script>
-        var openModalLink = document.getElementById('openModal');
-        var modal = document.getElementById('myModal');
-        var createUserForm = document.getElementById('createUserForm');
-
-        openModalLink.addEventListener('click', function(event) {
-            event.preventDefault();
-            modal.style.display = 'block';
-            createUserForm.style.display = 'block'; 
-        });
-
-        modal.querySelector('.close').addEventListener('click', function() {
-            modal.style.display = 'none';
-            createUserForm.style.display = 'none'; 
-        });
-
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            var username = document.getElementById('username').value;
-            var password = document.getElementById('password').value;
-
-            fetch('/user/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ username: username, password: password })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    window.location.href = '/admin'; // Redireciona para a página de administração
-                } else {
-                    alert(data.error); // Exibe mensagem de erro
-                }
-            })
-            .catch(error => console.error('Error:', error));
-        });
-
-        document.getElementById('createUserForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            var newUsername = document.getElementById('newUsername').value;
-            var newPassword = document.getElementById('newPassword').value;
-            var email = document.getElementById('email').value;
-
-            fetch('/user/create-user', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ username: newUsername, password: newPassword, email: email })
-            })
-            .then(response => response.json())
-            .then(data => {
-                alert(data.success ? 'Usuário criado com sucesso!' : data.error);
-            })
-            .catch(error => console.error('Error:', error));
-        });
-    </script>
+    <script src="/scriptLogin.js"></script>
 </body>
 
 </html>

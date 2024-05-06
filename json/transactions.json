@@ -1,12 +1,5 @@
 [
   {
-    "id": "fd219799-4295-45b7-90eb-382511e7409c",
-    "description": "banana",
-    "value": 1250,
-    "type": "exit",
-    "date": "2025-05-02"
-  },
-  {
     "id": "d8ad6dc5-e6c2-4243-b619-4b333bf69104",
     "description": "laranja",
     "value": 123,
@@ -21,10 +14,10 @@
     "date": "2024-05-05"
   },
   {
-    "id": "7faeb289-b275-4358-a027-25897ca4cb86",
-    "description": "feijao",
-    "value": 500,
-    "type": "exit",
-    "date": "2024-05-05"
+    "id": "bd24d23e-8838-4663-9fb0-a284795deb24",
+    "description": "Carro",
+    "value": 250,
+    "type": "entry",
+    "date": "2024-05-10"
   }
 ]

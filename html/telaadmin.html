@@ -10,95 +10,97 @@
 
 <body>
     <div class="container">
-        <h2>Admin</h2>
+        <div class="controle"> <h2>CONTROLE FINANCEIRO PESSOAL</h2> </div>
+       
         <div class="buttons">
-            <button onclick="openModal()">Cadastro de Usuários</button>
+            <button id="cadastroUsuarios" onclick="openModal()">Cadastro de Usuários</button>
         </div>
     </div>
     <div id="transactionModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeTransactionModal()">&times;</span>
-            <h2>Últimas Transações</h2>
+            <h2 id="ultimas">Últimas Transações</h2>
             <ul id="lastTransactions">
             </ul>
         </div>
     </div>
-    <div class="container">
-        <h2>Controle de Finanças</h2>
-        <div class="summary-section">
-            <div class="summary-box">
-                <h3>Entrada</h3>
-                <p>R$ <span id="entryTotal">0.00</span></p>
-            </div>
-            <div class="summary-box">
-                <h3>Saída</h3>
-                <p>R$ <span id="exitTotal">0.00</span></p>
-            </div>
-            <div class="summary-box">
-                <h3>Total</h3>
-                <p>R$ <span id="total">0.00</span></p>
+    <div class="container2"> 
+        <h2 id="title2">CONTROLE DE FINANÇAS</h2>
+        <div class="container1"> 
+            <div class="summary-section">
+                <div class="summary-box">
+                    <h3 id="sumario">Entrada</h3>
+                    <p>R$ <span id="entryTotal">0.00</span></p>
+                </div>
+                <div class="summary-box">
+                    <h3 id="sumario"> Saída</h3> 
+                    <p>R$ <span id="exitTotal">0.00</span></p>
+                </div>
+                <div class="summary-box">
+                    <h3 id="sumario">Total</h3>
+                    <p>R$ <span id="total">0.00</span></p>
+                </div>
             </div>
         </div>
-
         <div class="entry-section">
-            <h3>Nova Transação</h3>
+            <h3 id="transacao">Nova transação</h3>
             <div class="entry-form">
                 <input type="text" id="description" placeholder="Descrição" required>
                 <input type="text" id="value" placeholder="Valor" required>
                 <input type="text" id="date" placeholder="Data (DD/MM/YYYY)" required>
                 <select id="type">
-                    <option value="entry">Entrada</option>
-                    <option value="exit">Saída</option>
+                    <option id="opcoes" value="entry">Entrada</option>
+                    <option id="opcoes" value="exit">Saída</option>
                 </select>
-                <button onclick="submitTransaction()">Incluir</button>
+                <button id="select" onclick="submitTransaction()">Incluir</button>
             </div>
-        </div>
 
-        <!-- Modal -->
         <div id="userModal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeModal()">&times;</span>
-                <h2>Lista de Usuários</h2>
+                <h2 id="lista">Lista de Usuários</h2>
                 <ul id="userList">
             
                 </ul>
             </div>
         </div>
-        <!-- Fim do Modal -->
+  
 
-        <div class="container">
-            <table class="transaction-table">
+        <div class="container2">
+            <table id="finanças" class="transaction-table">
                 <thead>
                     <tr>
-                        <th>Descrição</th>
-                        <th>Valor</th>
-                        <th>Tipo</th>
-                        <th>Data</th>
-                        <th>Ações</th>
+                        <th id="finanças">Descrição</th>
+                        <th id="finanças">Valor</th>
+                        <th id="finanças">Tipo</th>
+                        <th id="finanças">Data</th>
+                        <th id="finanças">Ações</th>
                     </tr>
                 </thead>
                 <tbody id="transactionBody">
-                    <!-- Aqui serão adicionadas as transações -->
                 </tbody>
             </table>
         </div>
 
-        <div class="container">
-            <h2>Cadastro de Contas Bancárias</h2>
-            <div class="entry-section">
-                <h3>Nova Conta Bancária</h3>
-                <div class="entry-form">
-                    <input type="text" id="accountName" placeholder="Nome da Conta" required><br>
-                    <input type="text" id="bank" placeholder="Banco" required><br>
-                    <input type="text" id="accountNumber" placeholder="Número da Conta" required><br>
-                    <input type="text" id="balance" placeholder="Saldo" required><br>
-                    <button onclick="submitAccount()">Cadastrar Conta</button>
-                </div>
-            </div>
+<div class="container2">
+    <h2 id="title2">CADASTRO DE CONTAS BANCÁRIAS</h2>
+    <div class="entry-section">
+        <h3 id="transacao">Nova Conta Bancária</h3>
+        <div class="entry-form">
+            <input type="text" id="accountName" placeholder="Nome da Conta" required><br>
+            <input type="text" id="bank" placeholder="Banco" required><br>
+            <input type="text" id="accountNumber" placeholder="Número da Conta" required><br>
+            <input type="text" id="balance" placeholder="Saldo" required><br>
         </div>
-        <div class="container">
-            <table class="account-table">
-                <thead>
+        <div class="button-container">
+            <button id="cadastrarConta" onclick="submitAccount()">Cadastrar Conta</button>
+        </div>
+    </div>
+</div>
+
+        <div class="container3">
+            <table id="table"class="account-table">
+                <thead id="table">
                     <tr>
                         <th>Nome</th>
                         <th>Banco</th>
@@ -107,7 +109,6 @@
                     </tr>
                 </thead>
                 <tbody id="accountBody">
-                    <!-- Aqui serão adicionadas as contas bancárias -->
                 </tbody>
             </table>
         </div>

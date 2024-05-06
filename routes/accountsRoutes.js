@@ -1,4 +1,3 @@
-// routes/accountsRoutes.js
 const express = require('express');
 const accountsController = require('../controllers/accountsController');
 
